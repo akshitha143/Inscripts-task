@@ -1,11 +1,11 @@
 import React from 'react';
+//components
+import AppLayout from '../components/layout/AppLayout';
 
 
 const SpreadsheetPage: React.FC = () => {
   return (
-    <div className="p-4">
-      
-    </div>
+    <AppLayout/>
   );
 };
 

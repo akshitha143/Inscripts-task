@@ -4,3 +4,8 @@ export type User = {
   role: string;
   status: string;
 };
+
+export interface IBasicFCProps{
+    children?:React.ReactNode,
+    className?: string,
+}
