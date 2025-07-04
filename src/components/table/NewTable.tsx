@@ -1,6 +1,7 @@
 import {
   // flexRender,
   getCoreRowModel,
+  getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 
@@ -14,8 +15,8 @@ import { useMainContext } from "../../hooks/useMainContext";
 
 const SpreadsheetTable = () => {
     const [data ,setData] = useState(mockData);
-    const [selectedCell,setSelectedCell] = useState({row:0,col:1});
-    const {columnVisibility,handleColumnVisibilityChange} = useMainContext();
+    const [selectedCell,setSelectedCell] = useState({row:-1,col:-1});
+    const {columnVisibility,handleColumnVisibilityChange,sorting,handleSortingChange} = useMainContext();
     
     const table = useReactTable({
         data: data,
@@ -23,11 +24,14 @@ const SpreadsheetTable = () => {
         columnResizeMode: 'onChange',
         columnResizeDirection: "ltr",
         getCoreRowModel: getCoreRowModel(),
+        getSortedRowModel: getSortedRowModel(),
         enableColumnResizing: true,
         state:{
             columnVisibility,
+            sorting
         },
         onColumnVisibilityChange: handleColumnVisibilityChange,
+        onSortingChange: handleSortingChange,
         defaultColumn: {
         size: 220,
         minSize: 32,

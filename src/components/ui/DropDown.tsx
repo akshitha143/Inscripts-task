@@ -14,7 +14,7 @@ const DropDown:React.FC<IDropDownPros> = ({onChange,setOpen})=>{
     const {handleColumnVisibilityChange} = useContext(MainContext)!;
     const options = ["request","submitted","status","submitter","url","assigned","priority","dueDate","value"]
     return(
-        <ul className="absolute left-0 top-full z-50 mt-1 w-[120px] bg-white rounded-md shadow-md max-h-60 overflow-auto">
+        <ul className="absolute left-0 top-full z-50 mt-1 w-[120px] bg-white rounded-md shadow-lg max-h-60 overflow-auto">
           {options.map((opt,id) => (
             <li
               key={id}

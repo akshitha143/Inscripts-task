@@ -17,7 +17,6 @@ const handelInteraction = (input:string)=>{
 const ToolBar: React.FC<IBasicFCProps> = ()=>{
     const [open,setOpen] = useState(false);
     const [value,setValue] = useState("");
-    console.log(open);
     return(
         <>
             <div className="w-full h-auto bg-white flex flex-row flex-wrap md:flex-nowrap justify-start items-center md:px-4 md:py-2 border-b border-[#EEEEEE]">
