@@ -13,7 +13,7 @@ const TitleTab: React.FC<IBasicFCProps> = ()=>{
 
     return(
         <>
-            <div className="fixed bottom-0 left-0 right-0 w-full h-auto bg-[#FFFFFF] border-t border-[#EEEEEE] flex flex-row justify-start items-center px-8 pt-1">
+            <div className="fixed bottom-0 left-0 right-0 w-full h-auto bg-[#FFFFFF] border-t border-[#EEEEEE] flex flex-row justify-start items-center px-8 pt-1 z-50">
                 {
                     TabList.map((item,id)=>(
                         <div onClick={()=>{SetTab(id)}} key={id} className={cn(

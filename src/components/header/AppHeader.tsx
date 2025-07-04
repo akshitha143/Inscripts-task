@@ -1,9 +1,9 @@
 
 import React from "react"
 import { useState } from "react"
-import user from "../../assets/images/user.png"
+import userImg from "../../assets/images/user.png"
 
-import { mockData } from "../../data/mockData"
+import {user} from "../../data/mockData"
 
 //components
 import Breadcrumbs from "../ui/BreadCrums"
@@ -21,8 +21,7 @@ const AppHeader: React.FC<IBasicFCProps> = ()=>{
 
     return(
         <>
-            <header className="sticky top-0 left-0 right-0 w-full h-auto bg-white flex flex-row justify-between items-center p-4 py-2 border-b border-[#EEEEEE]">
-                
+            <header className="w-full h-auto bg-white flex flex-row justify-between items-center p-4 py-2 border-b border-[#EEEEEE]">
                 <div id="left-section" className="w-auto max-w-3xl h-auto flex flex-row justify-center items-center gap-4">
                     <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16.75 0C18.5449 0 20 1.45507 20 3.25V12.75C20 14.5449 18.5449 16 16.75 16H3.25C1.45507 16 0 14.5449 0 12.75V3.25C0 1.45507 1.45507 0 3.25 0H16.75ZM3.25 1.5C2.2835 1.5 1.5 2.2835 1.5 3.25V12.75C1.5 13.7165 2.2835 14.5 3.25 14.5H12.5V1.5H3.25Z" fill="#618666"/>
@@ -54,15 +53,15 @@ const AppHeader: React.FC<IBasicFCProps> = ()=>{
                     />
                     <div id="notification" className="w-auto h-auto relative flex flex-col justify-center items-center">
                         <Bell className="w-6 h-6"/>
-                        <div className="absolute  -top-1.5 -right-1.5 p-[2px] bg-white">
+                        <div className="absolute  -top-2 -right-2 p-[2px] bg-white">
                             <div className=" bg-[#4B6A4F] w-4 h-4 text-[10px] flex flex-row justify-center items-center text-[#F6F6F6]  rounded-full">2</div>
                         </div>
                     </div>
                     <div className="w-[200px] h-auto flex flex-row justify-center items-center gap-3">
-                        <img alt="user-image" src={user} className="w-[34px] h-[34px] rounded-full "/>
+                        <img alt="user-image" src={userImg} className="w-[32px] h-[32px] rounded-full "/>
                         <div className="grow h-auto flex flex-col justify-center items-start">
-                            <p className="text-left text-xs font-medium text-[#121212]">{mockData[0].name}</p>
-                            <p className="w-[84px] text-xs truncate text-[#757575]">{mockData[0].email}</p>
+                            <p className="text-left text-xs font-medium text-[#121212]">{user[0].name}</p>
+                            <p className="w-[84px] text-xs truncate text-[#757575]">{user[0].email}</p>
                         </div>
                     </div>
                    

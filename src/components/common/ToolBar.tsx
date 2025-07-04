@@ -17,7 +17,7 @@ const ToolBar: React.FC<IBasicFCProps> = ()=>{
 
     return(
         <>
-            <div className="right-0 w-full h-auto bg-white flex flex-row justify-start items-center p-4 py-2 border-b border-[#EEEEEE]">
+            <div className="w-full h-auto bg-white flex flex-row justify-start items-center p-4 py-2 border-b border-[#EEEEEE]">
 
                 <div onClick={()=>{handelInteraction("Tool bar")}} className="w-auto h-auto flex flex-row justify-center items-center gap-2  py-2  hover:cursor-pointer">
                     <span className="text-base font-light text-[#121212]">Tool bar</span>
@@ -58,19 +58,19 @@ const ToolBar: React.FC<IBasicFCProps> = ()=>{
                     
                 </div>
                 <div className="w-auto h-auto flex flex-row justify-end items-center gap-2">
-                    <Button className="gap-1.5 py-2 px-[10px] pr-3">
+                    <Button onClick={()=>{handelInteraction("Import")}} className="gap-1.5 py-2 px-[10px] pr-3">
                         <Download className="h-[18px]"/>
                         <span className="text-[#545454]">Import</span>
                     </Button>
-                    <Button className="gap-1.5 py-2 px-[10px] pr-3">
+                    <Button onClick={()=>{handelInteraction("Export")}} className="gap-1.5 py-2 px-[10px] pr-3">
                         <Upload className="h-[18px]"/>
                         <span className="text-[#545454]">Export</span>
                     </Button>
-                    <Button className="gap-1.5 py-2 px-3">
+                    <Button onClick={()=>{handelInteraction("Share")}} className="gap-1.5 py-2 px-3">
                         <Share className="h-[18px] w-[18px]"/>
                         <span className="text-[#545454]">Share</span>
                     </Button>
-                    <Button variant="active" className="gap-1.5 py-2 px-6 pr-[26px]">
+                    <Button onClick={()=>{handelInteraction("New Action")}} variant="active" className="gap-1.5 py-2 px-6 pr-[26px]">
                         <Group  className="h-4 w-4 fill-white"/>
                         <span className="text-[#FFFFFF] font-medium">New Action</span>
                     </Button>
