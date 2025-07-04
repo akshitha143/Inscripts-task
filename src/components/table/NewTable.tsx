@@ -73,7 +73,7 @@ const SpreadsheetTable = () => {
                         {table.getRowModel().rows.map(row => (
                         <tr key={row.id}>
                             {row.getVisibleCells().map(cell => (
-                                <TableCell activeCell={selectedCell} onChange={setData} key={cell.id} cell={cell} />
+                                <TableCell setActiveCell={setSelectedCell} activeCell={selectedCell} onChange={setData} key={cell.id} cell={cell} />
                             ))}
                         </tr>
                         ))}

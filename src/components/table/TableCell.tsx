@@ -14,10 +14,14 @@ interface CellProps {
   className?:string,
   children?:ReactNode,
   cell: Cell<Job,unknown>,
-  activeCell : {row:number,col:number}
+  activeCell : {row:number,col:number},
+  setActiveCell: Dispatch<SetStateAction<{
+    row: number;
+    col: number;
+}>>
 }
 
-const TableCell: React.FC<CellProps> = ({cell,onChange,activeCell}) => {
+const TableCell: React.FC<CellProps> = ({cell,onChange,activeCell,setActiveCell}) => {
   const cellEditing = useEditableCell(cell.getValue() as string);
   const editingCell = (e:React.ChangeEvent<HTMLInputElement>)=>{
         cellEditing.onChange(e)
@@ -38,7 +42,10 @@ const TableCell: React.FC<CellProps> = ({cell,onChange,activeCell}) => {
   
   return (
     <td
-      onClick={() => cellEditing.startEditing()}
+      onClick={() => {
+        setActiveCell({row:cell.row.index,col:cell.column.getIndex()})
+        cellEditing.startEditing();
+      }}
       width={cell.column.getSize()}
       style={{
         width: `${cell.column.getSize()}px`
