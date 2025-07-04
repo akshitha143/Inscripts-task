@@ -13,19 +13,21 @@ const TitleTab: React.FC<IBasicFCProps> = ()=>{
 
     return(
         <>
-            <div className="fixed bottom-0 left-0 right-0 w-full h-auto bg-[#FFFFFF] border-t border-[#EEEEEE] flex flex-row justify-start items-center px-8 pt-1 z-50">
-                {
-                    TabList.map((item,id)=>(
-                        <div onClick={()=>{SetTab(id)}} key={id} className={cn(
-                            "px-4 py-[10px] text-base text-[#757575] font-medium hover:text-[#3E5741] hover:cursor-pointer",
-                            currentTab==id && "bg-[#E8F0E9] border-t-2 border-[#4B6A4F] text-[#3E5741] font-semibold"
-                            )}>
-                            {item}
-                        </div>
-                    ))
-                }
-                <div className="px-4 py-[10px] text-base text-[#757575] font-medium hover:cursor-pointer">
-                   <Add className="w-4 h-4 fill-[#757575] hover:fill-[#3E5741] stroke-2"/>
+            <div className="fixed bottom-0 left-0 right-0 w-full h-auto bg-[#FFFFFF] border-t border-[#EEEEEE] flex flex-row justify-start items-center pl-8 pt-1 z-50 overflow-x-scroll overflow-y-hidden">
+                <div className="flex flex-row">
+                    {
+                        TabList.map((item,id)=>(
+                            <div onClick={()=>{SetTab(id)}} key={id} className={cn(
+                                "px-4 py-[10px] text-xs md:text-base text-[#757575] font-medium hover:text-[#3E5741] truncate hover:cursor-pointer",
+                                currentTab==id && "bg-[#E8F0E9] border-t-2 border-[#4B6A4F] text-[#3E5741] font-semibold"
+                                )}>
+                                {item}
+                            </div>
+                        ))
+                    }
+                    <div className="px-4 py-[10px] text-base text-[#757575] font-medium hover:cursor-pointer">
+                    <Add className="w-4 h-4 fill-[#757575] hover:fill-[#3E5741] stroke-2"/>
+                    </div>
                 </div>
             </div>
         </>
