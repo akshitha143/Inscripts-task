@@ -9,12 +9,14 @@ import TableCell from "./TableCell";
 import columns from "./colums";
 import { useEffect, useMemo, useState } from "react";
 import DeafultHeader from "./DeafultHeader";
+import { useMainContext } from "../../hooks/useMainContext";
 
 
 const SpreadsheetTable = () => {
     const [data ,setData] = useState(mockData);
     const [selectedCell,setSelectedCell] = useState({row:0,col:1});
-
+    const {columnVisibility,handleColumnVisibilityChange} = useMainContext();
+    
     const table = useReactTable({
         data: data,
         columns,
@@ -22,6 +24,10 @@ const SpreadsheetTable = () => {
         columnResizeDirection: "ltr",
         getCoreRowModel: getCoreRowModel(),
         enableColumnResizing: true,
+        state:{
+            columnVisibility,
+        },
+        onColumnVisibilityChange: handleColumnVisibilityChange,
         defaultColumn: {
         size: 220,
         minSize: 32,

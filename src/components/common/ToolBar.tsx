@@ -1,5 +1,5 @@
 
-import React from "react"
+import React, { useState } from "react"
 
 //icons
 import { Download,Upload,Share,Group } from "../icons";
@@ -8,13 +8,16 @@ import { Download,Upload,Share,Group } from "../icons";
 //types
 import type { IBasicFCProps } from "../../types"
 import Button from "../ui/Button";
+import DropDown from "../ui/DropDown";
 
 const handelInteraction = (input:string)=>{
     console.log("you Click "+ input+ " Button");
 }
 
 const ToolBar: React.FC<IBasicFCProps> = ()=>{
-
+    const [open,setOpen] = useState(false);
+    const [value,setValue] = useState("");
+    console.log(open);
     return(
         <>
             <div className="w-full h-auto bg-white flex flex-row flex-wrap md:flex-nowrap justify-start items-center md:px-4 md:py-2 border-b border-[#EEEEEE]">
@@ -31,11 +34,15 @@ const ToolBar: React.FC<IBasicFCProps> = ()=>{
                     </div>
                 </div>
                 <div className="grow h-full flex flex-row justify-evenly md:justify-start items-center gap-3 hover:cursor-pointer py-1 md:py-0">
-                    <div onClick={()=>{handelInteraction("Hide feilds")}} className="w-auto h-auto flex flex-row items-center gap-2 py-2 px-3">
+                    <div onClick={()=>{
+                                        handelInteraction("Hide feilds");
+                                        setOpen(!open);
+                                    }} className="relative w-auto h-auto flex flex-row items-center gap-2 py-2 px-3">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.849718 0.849722C0.627831 1.07161 0.607658 1.41883 0.789204 1.66351L0.849718 1.73361L4.21186 5.09575C2.6102 6.2203 1.41314 7.89993 0.91573 9.88699C0.831909 10.2218 1.03541 10.5612 1.37025 10.645C1.7051 10.7289 2.0445 10.5254 2.12832 10.1905C2.56955 8.42789 3.65926 6.94956 5.1118 5.99543L6.61982 7.50354C6.03023 8.10482 5.66666 8.92854 5.66666 9.83718C5.66666 11.6781 7.15905 13.1705 8.99999 13.1705C9.90864 13.1705 10.7324 12.807 11.3336 12.2174L16.2664 17.1503C16.5105 17.3944 16.9062 17.3944 17.1503 17.1503C17.3722 16.9284 17.3923 16.5812 17.2108 16.3365L17.1503 16.2664L12.0557 11.1712L12.0567 11.17L11.0566 10.1718L8.66497 7.78065L8.66666 7.78L6.26564 5.38152L6.26666 5.38L5.32226 4.4379L1.7336 0.849722C1.48953 0.605645 1.0938 0.605645 0.849718 0.849722ZM7.50339 8.38789L10.4493 11.3338C10.0743 11.697 9.56326 11.9205 8.99999 11.9205C7.8494 11.9205 6.91666 10.9878 6.91666 9.83718C6.91666 9.27392 7.14019 8.76287 7.50339 8.38789ZM8.99999 3.58333C8.16644 3.58333 7.35761 3.70672 6.59257 3.9375L7.62338 4.96766C8.06988 4.87943 8.53033 4.83333 8.99999 4.83333C12.2692 4.83333 15.0916 7.06688 15.8726 10.1943C15.9562 10.5292 16.2955 10.7329 16.6304 10.6492C16.9653 10.5656 17.169 10.2263 17.0854 9.89142C16.1661 6.2106 12.8463 3.58333 8.99999 3.58333ZM9.16223 6.50773L12.33 9.675C12.2452 7.9609 10.8727 6.5897 9.16223 6.50773Z" fill="#121212"/>
                         </svg>
                         <span className="hidden md:block text-sm font-light text-[#121212]">Hide feilds</span>
+                        {open && <DropDown setOpen={setOpen} value={value} onChange={setValue}/>}
                     </div>
                     <div onClick={()=>{handelInteraction("Sort")}} className="w-auto h-auto flex flex-row items-center gap-2 py-2 px-3 hover:cursor-pointer">
                         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
