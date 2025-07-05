@@ -34,11 +34,17 @@ const TableCell: React.FC<CellProps> = ({cell,onChange,activeCell,setActiveCell}
           return updated;
         });
   }
-  useEffect(()=>{
-    if(activeCell.row == cell.row.index && activeCell.col == cell.column.getIndex()){
-      cellEditing.startEditing();
-    }
-  },[activeCell,cell.row,cell.column,cellEditing]);
+  useEffect(() => {
+  const isActive =
+    activeCell.row === cell.row.index &&
+    activeCell.col === cell.column.getIndex();
+
+  if (isActive && !cellEditing.isEditing) {
+    cellEditing.startEditing();
+  } else if (!isActive && cellEditing.isEditing) {
+    cellEditing.setEditing(false);
+  }
+}, [cellEditing,cell.column,activeCell, cell.row.index]);
   
   return (
     <td
