@@ -9,6 +9,28 @@ type MainContextType = {
   sorting: SortingState;
   setSorting: React.Dispatch<React.SetStateAction<SortingState>>;
   handleSortingChange: OnChangeFn<SortingState>;
+  states: {
+    request: boolean;
+    submitted: boolean;
+    status: boolean;
+    submitter: boolean;
+    url: boolean;
+    assigned:boolean;
+    priority:boolean;
+    dueDate:boolean;
+    value:boolean;
+  };
+  setState:React.Dispatch<React.SetStateAction<{
+    request: boolean;
+    submitted: boolean;
+    status: boolean;
+    submitter: boolean;
+    url: boolean;
+    assigned:boolean;
+    priority:boolean;
+    dueDate:boolean;
+    value:boolean;
+  }>>;
 };
 
 const MainContext = createContext<MainContextType | undefined>(
@@ -19,7 +41,19 @@ export const MainProvider = ({ children }: { children: React.ReactNode }) => {
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     "request":true,"submitted":true,"status":true,"submitter":true,"url":true,"assigned":true,"priority":true,"dueDate":true,"value":true
   });
-
+ const [states,setState] = useState(
+      {
+        request:false,
+        submitted:false,
+        status:false,
+        submitter:false,
+        url:false,
+        assigned:false,
+        priority:false,
+        dueDate:false,
+        value:false
+      }
+    );
   const [sorting, setSorting] = useState<SortingState>([]);
 
   const handleColumnVisibilityChange: OnChangeFn<VisibilityState> = (updaterOrValue) => {
@@ -35,7 +69,7 @@ export const MainProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <MainContext.Provider
-      value={{ columnVisibility, setColumnVisibility, handleColumnVisibilityChange, sorting, setSorting, handleSortingChange }}
+      value={{ columnVisibility, setColumnVisibility, handleColumnVisibilityChange, sorting, setSorting, handleSortingChange,setState,states }}
     >
       {children}
     </MainContext.Provider>

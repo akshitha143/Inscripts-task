@@ -1,22 +1,20 @@
 
-import React, { useState } from "react"
+import React from "react"
 
 //icons
-import { Download,Upload,Share,Group } from "../icons";
+import { Download,Upload,Share,Group, Hide, Sort, Filter, Cell } from "../icons";
 
 
 //types
 import type { IBasicFCProps } from "../../types"
 import Button from "../ui/Button";
-import DropDown from "../ui/DropDown";
+import ToolButton from "./ToolButton";
 
 const handelInteraction = (input:string)=>{
     console.log("you Click "+ input+ " Button");
 }
 
 const ToolBar: React.FC<IBasicFCProps> = ()=>{
-    const [open,setOpen] = useState(false);
-    const [value,setValue] = useState("");
     return(
         <>
             <div className="w-full h-auto bg-white flex flex-row flex-wrap md:flex-nowrap justify-start items-center md:px-4 md:py-2 border-b border-[#EEEEEE]">
@@ -33,34 +31,18 @@ const ToolBar: React.FC<IBasicFCProps> = ()=>{
                     </div>
                 </div>
                 <div className="grow h-full flex flex-row justify-evenly md:justify-start items-center gap-3 hover:cursor-pointer py-1 md:py-0">
-                    <div onClick={()=>{
-                                        handelInteraction("Hide feilds");
-                                        setOpen(!open);
-                                    }} className="relative w-auto h-auto flex flex-row items-center gap-2 py-2 px-3">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.849718 0.849722C0.627831 1.07161 0.607658 1.41883 0.789204 1.66351L0.849718 1.73361L4.21186 5.09575C2.6102 6.2203 1.41314 7.89993 0.91573 9.88699C0.831909 10.2218 1.03541 10.5612 1.37025 10.645C1.7051 10.7289 2.0445 10.5254 2.12832 10.1905C2.56955 8.42789 3.65926 6.94956 5.1118 5.99543L6.61982 7.50354C6.03023 8.10482 5.66666 8.92854 5.66666 9.83718C5.66666 11.6781 7.15905 13.1705 8.99999 13.1705C9.90864 13.1705 10.7324 12.807 11.3336 12.2174L16.2664 17.1503C16.5105 17.3944 16.9062 17.3944 17.1503 17.1503C17.3722 16.9284 17.3923 16.5812 17.2108 16.3365L17.1503 16.2664L12.0557 11.1712L12.0567 11.17L11.0566 10.1718L8.66497 7.78065L8.66666 7.78L6.26564 5.38152L6.26666 5.38L5.32226 4.4379L1.7336 0.849722C1.48953 0.605645 1.0938 0.605645 0.849718 0.849722ZM7.50339 8.38789L10.4493 11.3338C10.0743 11.697 9.56326 11.9205 8.99999 11.9205C7.8494 11.9205 6.91666 10.9878 6.91666 9.83718C6.91666 9.27392 7.14019 8.76287 7.50339 8.38789ZM8.99999 3.58333C8.16644 3.58333 7.35761 3.70672 6.59257 3.9375L7.62338 4.96766C8.06988 4.87943 8.53033 4.83333 8.99999 4.83333C12.2692 4.83333 15.0916 7.06688 15.8726 10.1943C15.9562 10.5292 16.2955 10.7329 16.6304 10.6492C16.9653 10.5656 17.169 10.2263 17.0854 9.89142C16.1661 6.2106 12.8463 3.58333 8.99999 3.58333ZM9.16223 6.50773L12.33 9.675C12.2452 7.9609 10.8727 6.5897 9.16223 6.50773Z" fill="#121212"/>
-                        </svg>
-                        <span className="hidden md:block text-sm font-light text-[#121212]">Hide feilds</span>
-                        {open && <DropDown setOpen={setOpen} value={value} onChange={setValue}/>}
-                    </div>
-                    <div onClick={()=>{handelInteraction("Sort")}} className="w-auto h-auto flex flex-row items-center gap-2 py-2 px-3 hover:cursor-pointer">
-                        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3757 0.333336L13.2909 0.339042C12.9858 0.380427 12.7507 0.641923 12.7507 0.958336L12.75 11.535L10.0668 8.85366L9.99663 8.79318C9.75188 8.61174 9.40467 8.63205 9.18287 8.85403C8.9389 9.09821 8.93906 9.49394 9.18324 9.73792L12.9364 13.4879L13.0065 13.5484C13.2513 13.7298 13.5985 13.7095 13.8203 13.4875L17.5671 9.73755L17.6276 9.66742C17.8091 9.42267 17.7887 9.07546 17.5668 8.85366L17.4966 8.79318C17.2519 8.61174 16.9047 8.63205 16.6829 8.85403L14 11.5383L14.0007 0.958336L13.995 0.873527C13.9536 0.568464 13.6921 0.333336 13.3757 0.333336ZM4.17868 0.516409L0.433044 4.26229L0.372531 4.33239C0.190994 4.57707 0.211177 4.92429 0.433073 5.14617L0.503173 5.20668C0.747855 5.38822 1.09507 5.36804 1.31696 5.14614L3.9975 2.46426L3.99805 13.0458L4.00376 13.1306C4.04514 13.4357 4.30664 13.6708 4.62305 13.6708L4.70786 13.6651C5.01292 13.6237 5.24805 13.3622 5.24805 13.0458L5.2475 2.46593L7.93322 5.14664L8.00338 5.20708C8.24826 5.38835 8.59545 5.36781 8.8171 5.14567C9.06091 4.90133 9.06048 4.5056 8.81614 4.26179L5.06209 0.515913L4.99198 0.455515C4.7473 0.274338 4.40039 0.294678 4.17868 0.516409Z" fill="#121212"/>
-                        </svg>
-                        <span className="hidden md:block text-sm font-light text-[#121212]">Sort</span>
-                    </div>
-                    <div onClick={()=>{handelInteraction("Filter")}} className="w-auto h-auto flex flex-row items-center gap-2 py-2 px-3 hover:cursor-pointer">
-                        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.25 8.33333C8.59518 8.33333 8.875 8.61316 8.875 8.95833C8.875 9.30351 8.59518 9.58333 8.25 9.58333H5.75C5.40482 9.58333 5.125 9.30351 5.125 8.95833C5.125 8.61316 5.40482 8.33333 5.75 8.33333H8.25ZM10.75 4.16667C11.0952 4.16667 11.375 4.44649 11.375 4.79167C11.375 5.13684 11.0952 5.41667 10.75 5.41667H3.25C2.90482 5.41667 2.625 5.13684 2.625 4.79167C2.625 4.44649 2.90482 4.16667 3.25 4.16667H10.75ZM13.25 0C13.5952 0 13.875 0.279822 13.875 0.625C13.875 0.970178 13.5952 1.25 13.25 1.25H0.75C0.404822 1.25 0.125 0.970178 0.125 0.625C0.125 0.279822 0.404822 0 0.75 0H13.25Z" fill="#121212"/>
-                        </svg>
-                        <span className="hidden md:block text-sm font-light text-[#121212]">Filter</span>
-                    </div>
-                    <div onClick={()=>{handelInteraction("Cell view")}} className="w-auto h-auto flex flex-row items-center gap-2 py-2 px-3 hover:cursor-pointer">
-                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.0164 3.65096C7.79451 3.42907 7.77434 3.08185 7.95589 2.83717L8.0164 2.76708L9.98926 0.791988C10.094 0.61834 10.3024 0.5 10.5424 0.5C10.7525 0.5 10.9384 0.590718 11.0517 0.729818L11.0956 0.792271L13.0683 2.76708L13.1288 2.83717C13.2902 3.05466 13.2922 3.35318 13.1348 3.57267L13.0683 3.65096L12.9982 3.71147C12.7807 3.87285 12.4822 3.87484 12.2627 3.71745L12.1844 3.65096L11.1667 2.63333V5.78653L11.161 5.86073C11.1195 6.12766 10.858 6.33333 10.5416 6.33333C10.2252 6.33333 9.96372 6.12754 9.92237 5.8606L9.91668 5.78639V2.63333L8.90029 3.65096L8.83019 3.71147C8.58551 3.89302 8.23829 3.87285 8.0164 3.65096ZM8.01883 12.349C8.24072 12.1272 8.58794 12.107 8.83262 12.2885L8.90272 12.349L9.91911 13.3667V10.2136C9.91907 9.91158 10.1989 9.66667 10.544 9.66667C10.8604 9.66667 11.122 9.87234 11.1634 10.1393L11.1691 10.2135V13.3667L12.1869 12.349C12.4088 12.1272 12.756 12.107 13.0007 12.2885L13.0708 12.349C13.2926 12.5709 13.3128 12.9181 13.1313 13.1628L13.0708 13.2329L11.0981 15.2077C10.9934 15.3815 10.785 15.5 10.5449 15.5C10.3049 15.5 10.0964 15.3817 9.99169 15.208L8.01883 13.2329C7.77476 12.9888 7.77476 12.5931 8.01883 12.349ZM2.20834 1.32682C1.17281 1.32682 0.333344 2.16629 0.333344 3.20182V12.7852C0.333344 13.8207 1.17281 14.6602 2.20834 14.6602H5.54168C5.88686 14.6602 6.16668 14.3803 6.16668 14.0352C6.16668 13.69 5.88686 13.4102 5.54168 13.4102H2.20834C1.86317 13.4102 1.58334 13.1303 1.58334 12.7852V3.20182C1.58334 2.85664 1.86317 2.57682 2.20834 2.57682H5.54168C5.88686 2.57682 6.16668 2.297 6.16668 1.95182C6.16668 1.60664 5.88686 1.32682 5.54168 1.32682H2.20834Z" fill="#121212"/>
-                        </svg>
-                        <span className="hidden md:block text-sm font-light text-[#121212]">Cell view</span>
-                    </div>
+                    <ToolButton addDropDown={true} title="Hide feilds">
+                        <Hide/>
+                    </ToolButton>
+                    <ToolButton addDropDown={true} title="Sort">
+                        <Sort/>
+                    </ToolButton>
+                    <ToolButton addDropDown={false} title="Filter">
+                        <Filter/>
+                    </ToolButton>
+                    <ToolButton addDropDown={false} title="Cell view">
+                        <Cell/>
+                    </ToolButton>
                     
                 </div>
                 <div className="w-full md:w-auto h-auto flex flex-row justify-evenly md:justify-end items-center gap-2 py-2 md:py-0 border-t border-[#EEEEEE] md:border-none">

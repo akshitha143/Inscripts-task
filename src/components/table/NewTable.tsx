@@ -17,7 +17,7 @@ const SpreadsheetTable = () => {
     const [data ,setData] = useState(mockData);
     const [selectedCell,setSelectedCell] = useState({row:-1,col:-1});
     const {columnVisibility,handleColumnVisibilityChange,sorting,handleSortingChange} = useMainContext();
-    
+    console.log("in table");
     const table = useReactTable({
         data: data,
         columns,
@@ -30,16 +30,16 @@ const SpreadsheetTable = () => {
             columnVisibility,
             sorting
         },
+        
         onColumnVisibilityChange: handleColumnVisibilityChange,
         onSortingChange: handleSortingChange,
         defaultColumn: {
-        size: 220,
-        minSize: 32,
-        maxSize: 500,
+            size: 220,
+            minSize: 32,
+            maxSize: 500,
+            enableSorting:true,
         },
     });
-
-    
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
