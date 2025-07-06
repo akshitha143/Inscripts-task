@@ -7,8 +7,8 @@ import AppHeader from "../header/AppHeader"
 
 //types
 import type { IBasicFCProps } from "../../types"
-import ToolBar from "../common/ToolBar"
-import TitleTab from "../common/TitelTab"
+import ToolBar from "../header/ToolBar"
+import TitleTab from "../header/TitelTab"
 
 
 const AppLayout: React.FC<IBasicFCProps> = ({children})=>{

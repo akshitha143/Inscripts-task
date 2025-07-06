@@ -8,7 +8,7 @@ import { Download,Upload,Share,Group, Hide, Sort, Filter, Cell } from "../icons"
 //types
 import type { IBasicFCProps } from "../../types"
 import Button from "../ui/Button";
-import ToolButton from "./ToolButton";
+import ToolButton from "../common/ToolButton";
 
 const handelInteraction = (input:string)=>{
     console.log("you Click "+ input+ " Button");
