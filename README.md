@@ -138,14 +138,95 @@ These files together make up the core logic for a fully interactive, Excel-like 
 
 ## 🔁 Workflow
 
-1. **Clone the repo**
-2. **Install dependencies**
-3. **Develop components** one by one with design reference
-4. **Implement table logic** with `react-table`
-5. **Add sorting, editing, and keyboard nav**
-6. **Apply polish** for pixel-perfection and Figma match
-7. **Lint, format, and type-check**
-8. **Deploy to Vercel**
+This section outlines the step-by-step approach I followed to develop the **Flexcel** spreadsheet UI, based on the intern assignment provided by **Inscripts**.
+
+---
+
+### 🧠 1. Analyzed the Assignment & Figma Design
+
+- Carefully reviewed the Figma design to understand layout, spacing, font styles, and pixel details.
+- Identified UI patterns and broke the design into modular components (header, table, toolbar, etc.).
+- Studied the interaction requirements like sorting, editing, column visibility, and keyboard navigation.
+
+---
+
+### 🏗️ 2. Planned the Architecture and Folder Structure
+
+- Created a scalable folder structure using separation of concerns:
+
+
+- Decided on `react-table` for table logic and Tailwind CSS for styling, with custom logic where needed.
+
+---
+
+### ⚙️ 3. Set Up the Project Environment
+
+- Initialized the project using **Vite + React 18 + TypeScript**.
+- Installed required libraries: `@tanstack/react-table`, `clsx`, `tailwind`, `eslint`, and `prettier`.
+- Enabled strict typing in `tsconfig.json` for reliable type safety.
+- Set up Tailwind config with custom colors for design accuracy.
+
+---
+
+### 🧩 4. Developed UI Components
+
+- Built reusable components:
+  - `Button`, `Input`, `StatusBadge`, `Icon` inside `common/`
+  - `TabNavigation`, `ToolbarButtons` in `Header/`
+  - `TableCell`, `EditableCell`, and `columns.tsx` inside `Table/`
+
+- Ensured each component closely matched the Figma design using Tailwind spacing, color, and typography classes.
+
+---
+
+### 📊 5. Implemented Table Logic
+
+- Used `react-table` to:
+  - Define grouped columns in `columns.tsx`
+  - Enable sorting, column visibility toggling, and header rendering
+
+- Added keyboard navigation using arrow keys inside a custom hook.
+- Enabled cell editing with in-place inputs using controlled state.
+
+---
+
+### 🎯 6. Refined for Pixel-Perfection
+
+- Verified every component and layout against Figma using browser DevTools and exact measurements.
+- Applied responsive design techniques using Tailwind utilities (`flex`, `gap`, `truncate`, `overflow-hidden`, etc.).
+- Used `clsx` for conditional styling (e.g., cell highlight, priority color coding).
+
+---
+
+### ✅ 7. Polished, Type-Checked, and Linted
+
+- Ran `npm run type-check` to validate all TypeScript typings.
+- Used **ESLint + Prettier** for consistent formatting and linting.
+- Verified component props, hooks, and context usage were all well-typed and reusable.
+
+---
+
+### 🚀 8. Deployed on Vercel
+
+- Pushed project to GitHub.
+- Connected the GitHub repo to [Vercel](https://vercel.com/) for instant deployment.
+- Configured `vercel.json` if needed to handle single-page app routing.
+- Final deployed link: [https://flexcel.vercel.app](https://inscripts-task.vercel.app/)
+
+---
+
+### 🧾 Summary of My Approach
+
+| Phase     | Focus                                         |
+|-----------|-----------------------------------------------|
+| 📘 Analysis   | Broke design into components                 |
+| 🗂 Structure  | Created a clean, modular codebase            |
+| ⚙️ Setup      | Tooling, linting, and TypeScript enabled     |
+| 🧩 UI         | Reusable, pixel-perfect, responsive components |
+| 🧠 Logic      | `react-table`, editable cells, keyboard nav  |
+| 🧼 Polish     | Match Figma 1:1, maintain clean commit history |
+| 🚀 Delivery   | Deployed live app on Vercel                  |
+
 
 ---
 
@@ -229,7 +310,7 @@ Looking forward to more such exciting challenges!
 
 ![React](https://img.shields.io/badge/React-19-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38BDF8?logo=tailwindcss&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.x-38BDF8?logo=tailwindcss&logoColor=white)
 ![react-table](https://img.shields.io/badge/React--Table-v8-6B7280?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-fast-yellow?logo=vite)
 ![Internship](https://img.shields.io/badge/Intern_Assignment-Inscripts-blueviolet)
