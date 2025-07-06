@@ -256,7 +256,6 @@ npm run type-check
 
 👉 [Github Repo](https://github.com/akshitha143/Inscripts-task.git)
 
-👉 [Demo Video](https://www.loom.com/share/1409e1b87af247aaa77748cc5a0b6477?sid=02c5202f-5a12-4c2a-ad3d-297700147edc)
 
 ---
 
