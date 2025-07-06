@@ -44,7 +44,7 @@ The design was closely followed using the provided [Figma design](https://www.fi
 
 | Technology      | Purpose                                |
 |-----------------|----------------------------------------|
-| React 18        | UI rendering and component architecture |
+| React 19        | UI rendering and component architecture |
 | TypeScript      | Static typing and IntelliSense          |
 | Tailwind CSS    | Utility-first styling                   |
 | react-table     | Table generation and row/column logic   |
@@ -227,8 +227,7 @@ Looking forward to more such exciting challenges!
 
 ---
 
-[![Inscripts](https://example.com/inscripts-logo.svg)](https://inscripts.com)
-![React](https://img.shields.io/badge/React-18-blue)
+![React](https://img.shields.io/badge/React-19-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38BDF8?logo=tailwindcss&logoColor=white)
 ![react-table](https://img.shields.io/badge/React--Table-v8-6B7280?logo=react&logoColor=white)
