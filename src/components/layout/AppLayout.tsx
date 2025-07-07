@@ -4,11 +4,12 @@ import React from "react"
 
 //componetes
 import AppHeader from "../header/AppHeader"
+import ToolBar from "../header/ToolBar"
+import TitleTab from "../header/TitelTab"
 
 //types
 import type { IBasicFCProps } from "../../types"
-import ToolBar from "../header/ToolBar"
-import TitleTab from "../header/TitelTab"
+
 
 
 const AppLayout: React.FC<IBasicFCProps> = ({children})=>{

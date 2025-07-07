@@ -1,5 +1,7 @@
 import React from 'react';
+//utilities functions
 import { cn } from '../../utils/cn';
+//icons
 import { Search } from '../icons';
 
 type SearchInputProps = {

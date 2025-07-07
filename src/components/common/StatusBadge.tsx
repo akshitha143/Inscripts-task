@@ -1,5 +1,9 @@
 import React from "react";
+
+//utilities functions
 import { cn } from "../../utils/cn";
+
+//type
 import type { Status} from "../../types";
 import { STATUS_COLOR_CLASSES,STATUS_LABELS } from "../../types";
 

@@ -3,6 +3,7 @@ import React from "react"
 import { useState } from "react"
 import userImg from "../../assets/images/user.png"
 
+//data
 import {user} from "../../data/mockData"
 
 //components

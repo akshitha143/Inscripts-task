@@ -5,6 +5,8 @@ import { cn } from "../../utils/cn"
 
 //types
 import type { IBasicFCProps } from "../../types"
+
+//icons
 import { Add } from "../icons"
 
 const TitleTab: React.FC<IBasicFCProps> = ()=>{

@@ -1,5 +1,9 @@
 import { useContext, useState, type ReactNode } from "react";
+
+//context for centrilized data storing
 import MainContext from "../../context/MainContext";
+
+//components
 import DropDown from "../ui/DropDown";
 
 

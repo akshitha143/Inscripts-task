@@ -1,15 +1,16 @@
+import { useEffect, useMemo, useState } from "react";
 import {
-  // flexRender,
   getCoreRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-
+//data
 import mockData from "../../data/tableData";
+//compoentes
 import TableCell from "./TableCell";
 import columns from "./colums";
-import { useEffect, useMemo, useState } from "react";
 import DeafultHeader from "./DeafultHeader";
+//hooks
 import { useMainContext } from "../../hooks/useMainContext";
 
 

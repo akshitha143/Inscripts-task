@@ -1,6 +1,5 @@
 import { useEditableCell } from "../../hooks/useEditableCell"
 import clsx from "clsx";
-// import { cn } from "../../utils/cn";
 import { useEffect, type ReactNode } from "react";
 import { flexRender } from "@tanstack/react-table";
 import type { Cell } from "@tanstack/react-table";

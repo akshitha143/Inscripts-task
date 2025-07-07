@@ -1,6 +1,8 @@
 import React from 'react';
-import { cn } from '../../utils/cn';
+//icons
 import { Loader2 } from 'lucide-react';
+//utilities functions
+import { cn } from '../../utils/cn';
 
 export type ButtonProps = {
   children: React.ReactNode;

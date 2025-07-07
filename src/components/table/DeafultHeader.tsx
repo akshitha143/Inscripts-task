@@ -1,6 +1,10 @@
-import type { ColumnDef, Header } from "@tanstack/react-table"
 import { flexRender } from "@tanstack/react-table"
+
+//types
+import type { ColumnDef, Header } from "@tanstack/react-table"
 import type { Job } from "../../types"
+
+//icons
 import { Add } from "../icons";
 
 interface IDeafultHeaderprops{

@@ -1,5 +1,6 @@
 // ColumnVisibilityContext.tsx
 import { createContext, useState } from "react";
+//types
 import type { OnChangeFn, VisibilityState, SortingState } from "@tanstack/react-table";
 
 type MainContextType = {

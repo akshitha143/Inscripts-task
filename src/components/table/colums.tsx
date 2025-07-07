@@ -1,7 +1,10 @@
 import StatusBadge from "../common/StatusBadge";
+//types
 import type { Job } from "../../types";
-import { Link, Reload,Group, Bag, Down,Add, Date, Icon, User, Internet, Heand } from "../icons";
 import type { ColumnDef } from "@tanstack/react-table";
+//icons
+import { Link, Reload,Group, Bag, Down,Add, Date, Icon, User, Internet, Heand } from "../icons";
+//utilities functions
 import { cn } from "../../utils/cn";
 
 
